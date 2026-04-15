@@ -1,16 +1,24 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-        int [] array = new int[]{1,2,3,4,5};
-        System.out.println(array[0]);
-        System.out.println(array);
-        // for normal
-        for (int i= 0; i < array.length; i++) {
-            System.err.println(array[i]);
+        int cantidadEstudiantes = 1000000;
+        int cantidad = 1_000_000;
+
+
+        List<Estudiante> estudiantes = Generador.generarListado(cantidadEstudiantes);
+        //for (Estudiante est: estudiantes){
+        //System.out.println(est.nombre);   
+        //}
+        String nombreBuscar="Estudiante_2900111";
+        int intentos = 0;
+        for(Estudiante est: estudiantes){
+            if (est.nombre.equals(nombreBuscar)){   // equals para comparar cadenas de texto
+                System.out.println( "Existe");
+                break;
+            } else {
+                intentos++;
+            }
         }
-        //for each
-        for( int i : array){
-            System.out.println(i);
-        }
+        System.out.println(intentos);
+        System.out.println("Fin");
     }
 }
